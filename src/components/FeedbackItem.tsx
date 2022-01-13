@@ -5,19 +5,31 @@ interface Props {}
 
 function FeedbackItem({}: Props): ReactElement {
   // states
-  const [feedback] = useState<Feedback | null>({
+  const [feedback, setFeedback] = useState<Feedback>({
     rating: 5,
     text: 'This is a sample feedback.',
   });
 
   // event handlers
-  const handleClick = () => {};
+  const handleClick = () => {
+    setFeedback((feedback) => {
+      const f: Feedback = {
+        text: feedback.text,
+        rating: feedback.rating + 1,
+      };
+
+      return f;
+    });
+  };
 
   return (
     <div className="card">
       <div className="num-display">{feedback?.rating}</div>
       <div className="text-display">{feedback?.text}</div>
-      <button onClick={handleClick}></button>
+      <br />
+      <button className="btn btn-primary" onClick={handleClick}>
+        Click
+      </button>
     </div>
   );
 }
