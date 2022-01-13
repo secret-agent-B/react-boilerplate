@@ -1,36 +1,17 @@
-import React, { ReactElement, useState } from 'react';
-import { Feedback } from './interfaces/FeedbackItem';
+import React, { ReactElement } from 'react';
+import { Feedback } from './models/Feedback';
+import Card from './shared/Card';
 
-interface Props {}
+interface Props {
+  feedback: Feedback;
+}
 
-function FeedbackItem({}: Props): ReactElement {
-  // states
-  const [feedback, setFeedback] = useState<Feedback>({
-    rating: 5,
-    text: 'This is a sample feedback.',
-  });
-
-  // event handlers
-  const handleClick = () => {
-    setFeedback((feedback) => {
-      const f: Feedback = {
-        text: feedback.text,
-        rating: feedback.rating + 1,
-      };
-
-      return f;
-    });
-  };
-
+function FeedbackItem({ feedback }: Props): ReactElement {
   return (
-    <div className="card">
+    <Card>
       <div className="num-display">{feedback?.rating}</div>
       <div className="text-display">{feedback?.text}</div>
-      <br />
-      <button className="btn btn-primary" onClick={handleClick}>
-        Click
-      </button>
-    </div>
+    </Card>
   );
 }
 
