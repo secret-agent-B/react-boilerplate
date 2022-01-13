@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 
 interface Prop {
-  children: JSX.Element[];
+  children: JSX.Element[] | JSX.Element;
   reverse?: boolean;
 }
 
