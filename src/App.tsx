@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
+import FeedbackItem from './components/FeedbackItem';
+import Header from './components/Header';
 
-/**
- * The App component
- */
 export default class App extends Component {
-  /**
-   * The render method.
-   * @return {JSX.Element}
-   */
   render() {
-    return <div>This is a test.</div>;
+    return (
+      <>
+        <Header />
+        <div className="container">
+          <FeedbackItem />
+        </div>
+      </>
+    );
   }
 }

@@ -21,6 +21,12 @@
     "strict": true,
     "target": "es2018"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/App.js",
+    "src/index.js"
+  ],
   "exclude": ["node_modules"]
 }

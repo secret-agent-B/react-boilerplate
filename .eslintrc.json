@@ -14,7 +14,19 @@
   },
   "plugins": ["react", "@typescript-eslint"],
   "rules": {
-    "quotes": ["error", "single"]
+    "quotes": ["error", "single"],
+    "require-jsdoc": [
+      "warn",
+      {
+        "require": {
+          "ClassDeclaration": false,
+          "FunctionDeclaration": false,
+          "MethodDefinition": false,
+          "ArrowFunctionExpression": false,
+          "FunctionExpression": false
+        }
+      }
+    ]
   },
   "settings": {
     "react": {
