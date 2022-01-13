@@ -4,9 +4,10 @@ import { Feedback } from './models/Feedback';
 
 interface Props {
   feedbacks: Feedback[];
+  handleDelete: Function;
 }
 
-function FeedbackList({ feedbacks }: Props): ReactElement {
+function FeedbackList({ feedbacks, handleDelete }: Props): ReactElement {
   if (!feedbacks || feedbacks.length === 0) {
     return <div>No feedback yet.</div>;
   }
@@ -17,7 +18,7 @@ function FeedbackList({ feedbacks }: Props): ReactElement {
         <FeedbackItem
           key={feedback.id}
           feedback={feedback}
-          handleDelete={(id: number) => console.log(`Deleting ${id}`)}
+          handleDelete={(id: number) => handleDelete(id)}
         />
       ))}
     </div>

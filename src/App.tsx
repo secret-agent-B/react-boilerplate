@@ -9,14 +9,23 @@ import FeedbackList from './components/FeedbackList';
 
 // data
 import { FeedbackData } from './data/FeedbackData';
+import FeedbackStats from './components/FeedbackStats';
 
 function App(): ReactElement {
-  const [feedbacks] = useState<Feedback[]>(FeedbackData);
+  const [feedbacks, setFeedbacks] = useState<Feedback[]>(FeedbackData);
+
+  const deleteFeedback = (id: number) => {
+    if (window.confirm('Are you sure you want to delete?')) {
+      setFeedbacks(feedbacks.filter((feedback) => feedback.id !== id));
+    }
+  };
+
   return (
     <>
       <Header />
       <div className="container">
-        <FeedbackList feedbacks={feedbacks} />
+        <FeedbackStats feedbacks={feedbacks} />
+        <FeedbackList feedbacks={feedbacks} handleDelete={deleteFeedback} />
       </div>
     </>
   );
