@@ -14,7 +14,11 @@ function FeedbackList({ feedbacks }: Props): ReactElement {
   return (
     <div className="feedback-list">
       {feedbacks.map((feedback) => (
-        <FeedbackItem key={feedback.id} feedback={feedback} />
+        <FeedbackItem
+          key={feedback.id}
+          feedback={feedback}
+          handleDelete={(id: number) => console.log(`Deleting ${id}`)}
+        />
       ))}
     </div>
   );
