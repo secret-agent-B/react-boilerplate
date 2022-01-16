@@ -1,17 +1,36 @@
 import React, { ChangeEvent, ReactElement, useState } from 'react';
+import Button from './shared/Button';
 import Card from './shared/Card';
 
-interface Props {}
 interface FeedbackForm {
   text: string;
+  message: string;
+  btnDisabled: boolean;
 }
 
-function FeedbackForm({}: Props): ReactElement {
-  const [feedbackForm, setFeedbackForm] = useState<FeedbackForm | null>();
+function FeedbackForm(): ReactElement {
+  const [feedbackForm, setFeedbackForm] = useState<FeedbackForm>({
+    btnDisabled: true,
+    message: '',
+    text: '',
+  });
 
   const handleTextChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const text = e.target.value;
+    const textLen = text.length;
+
+    let disabled = false;
+    let message = '';
+
+    if (textLen < 10) {
+      disabled = true;
+      message = 'Text must be at least 10 characters long.';
+    }
+
     const feedbackForm: FeedbackForm = {
-      text: e.target.value,
+      text: text,
+      message: message,
+      btnDisabled: disabled,
     };
 
     setFeedbackForm(feedbackForm);
@@ -29,8 +48,13 @@ function FeedbackForm({}: Props): ReactElement {
             value={feedbackForm?.text}
             placeholder="Write a review"
           />
-          <button type="submit">Send</button>
+          <Button disabled={feedbackForm?.btnDisabled} type="submit">
+            <>Send</>
+          </Button>
         </div>
+        {feedbackForm?.message && (
+          <div className="message">{feedbackForm?.message}</div>
+        )}
       </form>
     </Card>
   );

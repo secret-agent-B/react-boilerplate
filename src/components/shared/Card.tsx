@@ -1,11 +1,11 @@
 import React, { ReactElement } from 'react';
 
-interface Prop {
+interface Props {
   children: JSX.Element[] | JSX.Element;
   reverse?: boolean;
 }
 
-function Card({ children, reverse }: Prop): ReactElement {
+function Card({ children, reverse }: Props): ReactElement {
   return <div className={`card ${reverse && 'reverse'}`}>{children}</div>;
 }
 
