@@ -2,12 +2,8 @@ import React, { ReactElement, useContext } from 'react';
 import FeedbackContext from '../context/FeedbackContext';
 import FeedbackItem from './FeedbackItem';
 
-interface Props {
-  handleDelete: Function;
-}
-
-function FeedbackList({ handleDelete }: Props): ReactElement {
-  const { feedbacks } = useContext(FeedbackContext);
+function FeedbackList(): ReactElement {
+  const { feedbacks, deleteFeedback } = useContext(FeedbackContext);
 
   if (!feedbacks || feedbacks.length === 0) {
     return <div>No feedback yet.</div>;
@@ -19,7 +15,7 @@ function FeedbackList({ handleDelete }: Props): ReactElement {
         <FeedbackItem
           key={feedback.id}
           feedback={feedback}
-          handleDelete={(id: number) => handleDelete(id)}
+          handleDelete={(id: number) => deleteFeedback(id)}
         />
       ))}
     </div>

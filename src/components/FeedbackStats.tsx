@@ -1,11 +1,9 @@
-import React, { ReactElement } from 'react';
-import { Feedback } from './models/Feedback';
+import React, { ReactElement, useContext } from 'react';
+import FeedbackContext from '../context/FeedbackContext';
 
-interface Props {
-  feedbacks: Feedback[];
-}
+function FeedbackStats(): ReactElement {
+  const { feedbacks } = useContext(FeedbackContext);
 
-function FeedbackStats({ feedbacks }: Props): ReactElement {
   // Calculate ratings average
   const average =
     feedbacks.reduce((acc, cur) => {

@@ -1,14 +1,17 @@
-import React, { ChangeEvent, FormEvent, ReactElement, useState } from 'react';
+import React, {
+  ChangeEvent,
+  FormEvent,
+  ReactElement,
+  useState,
+  useContext,
+} from 'react';
 import RatingSelect from './RatingSelect';
 import Button from './shared/Button';
 import Card from './shared/Card';
 import { AddFeedback } from './commands/AddFeedback';
+import FeedbackContext from '../context/FeedbackContext';
 
-interface Props {
-  handleAdd: Function;
-}
-
-function FeedbackForm({ handleAdd }: Props): ReactElement {
+function FeedbackForm(): ReactElement {
   // hardcoded values
   const defaultRating = 10;
 
@@ -17,6 +20,7 @@ function FeedbackForm({ handleAdd }: Props): ReactElement {
   const [text, setText] = useState<string>('');
   const [message, setMessage] = useState<string>('');
   const [btnDisabled, setBtnDisabled] = useState<boolean>(true);
+  const { addFeedback } = useContext(FeedbackContext);
 
   // event handlers
   const handleTextChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -46,7 +50,7 @@ function FeedbackForm({ handleAdd }: Props): ReactElement {
         rating,
       };
 
-      handleAdd(newFeedback);
+      addFeedback(newFeedback);
 
       // reset form.
       setText('');
