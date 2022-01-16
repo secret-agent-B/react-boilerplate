@@ -1,17 +1,15 @@
-import React, { ChangeEvent, ReactElement, useState } from 'react';
+import React, { ChangeEvent, ReactElement } from 'react';
 
 interface Props {
-  defaultRating?: number;
-  onSelected: Function;
+  rating?: number;
+  onRatingSelected: Function;
 }
 
-function RatingSelect({ onSelected, defaultRating = 10 }: Props): ReactElement {
-  const [selected, setSelected] = useState<number>(defaultRating);
+function RatingSelect({ onRatingSelected, rating = 10 }: Props): ReactElement {
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     // convert string to number by adding a '+' sign
     const rating = +e.currentTarget.value;
-    setSelected(rating);
-    onSelected(rating);
+    onRatingSelected(rating);
   };
 
   return (
@@ -23,7 +21,7 @@ function RatingSelect({ onSelected, defaultRating = 10 }: Props): ReactElement {
           name="rating"
           value="1"
           onChange={handleChange}
-          checked={selected === 1}
+          checked={rating === 1}
         />
         <label htmlFor="num1">1</label>
       </li>
@@ -34,7 +32,7 @@ function RatingSelect({ onSelected, defaultRating = 10 }: Props): ReactElement {
           name="rating"
           value="2"
           onChange={handleChange}
-          checked={selected === 2}
+          checked={rating === 2}
         />
         <label htmlFor="num2">2</label>
       </li>
@@ -45,7 +43,7 @@ function RatingSelect({ onSelected, defaultRating = 10 }: Props): ReactElement {
           name="rating"
           value="3"
           onChange={handleChange}
-          checked={selected === 3}
+          checked={rating === 3}
         />
         <label htmlFor="num3">3</label>
       </li>
@@ -56,7 +54,7 @@ function RatingSelect({ onSelected, defaultRating = 10 }: Props): ReactElement {
           name="rating"
           value="4"
           onChange={handleChange}
-          checked={selected === 4}
+          checked={rating === 4}
         />
         <label htmlFor="num4">4</label>
       </li>
@@ -67,7 +65,7 @@ function RatingSelect({ onSelected, defaultRating = 10 }: Props): ReactElement {
           name="rating"
           value="5"
           onChange={handleChange}
-          checked={selected === 5}
+          checked={rating === 5}
         />
         <label htmlFor="num5">5</label>
       </li>
@@ -78,7 +76,7 @@ function RatingSelect({ onSelected, defaultRating = 10 }: Props): ReactElement {
           name="rating"
           value="6"
           onChange={handleChange}
-          checked={selected === 6}
+          checked={rating === 6}
         />
         <label htmlFor="num6">6</label>
       </li>
@@ -89,7 +87,7 @@ function RatingSelect({ onSelected, defaultRating = 10 }: Props): ReactElement {
           name="rating"
           value="7"
           onChange={handleChange}
-          checked={selected === 7}
+          checked={rating === 7}
         />
         <label htmlFor="num7">7</label>
       </li>
@@ -100,7 +98,7 @@ function RatingSelect({ onSelected, defaultRating = 10 }: Props): ReactElement {
           name="rating"
           value="8"
           onChange={handleChange}
-          checked={selected === 8}
+          checked={rating === 8}
         />
         <label htmlFor="num8">8</label>
       </li>
@@ -111,7 +109,7 @@ function RatingSelect({ onSelected, defaultRating = 10 }: Props): ReactElement {
           name="rating"
           value="9"
           onChange={handleChange}
-          checked={selected === 9}
+          checked={rating === 9}
         />
         <label htmlFor="num9">9</label>
       </li>
@@ -122,7 +120,7 @@ function RatingSelect({ onSelected, defaultRating = 10 }: Props): ReactElement {
           name="rating"
           value="10"
           onChange={handleChange}
-          checked={selected === 10}
+          checked={rating === 10}
         />
         <label htmlFor="num10">10</label>
       </li>

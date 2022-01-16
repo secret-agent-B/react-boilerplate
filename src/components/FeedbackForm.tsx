@@ -9,12 +9,16 @@ interface Props {
 }
 
 function FeedbackForm({ handleAdd }: Props): ReactElement {
+  // hardcoded values
   const defaultRating = 10;
+
+  // states
   const [rating, setRating] = useState<number>(defaultRating);
   const [text, setText] = useState<string>('');
   const [message, setMessage] = useState<string>('');
   const [btnDisabled, setBtnDisabled] = useState<boolean>(true);
 
+  // event handlers
   const handleTextChange = (e: ChangeEvent<HTMLInputElement>) => {
     const text = e.target.value;
     const textLen = text.length;
@@ -41,21 +45,25 @@ function FeedbackForm({ handleAdd }: Props): ReactElement {
         text,
         rating,
       };
-      console.log({
-        text,
-        rating,
-      });
+
       handleAdd(newFeedback);
+
+      // reset form.
+      setText('');
+      setMessage('');
+      setRating(10);
+      setBtnDisabled(true);
     }
   };
 
+  // JSX
   return (
     <Card>
       <form onSubmit={handleSubmit}>
         <h2>How would you rate your service with us?</h2>
         <RatingSelect
-          defaultRating={defaultRating}
-          onSelected={(rating: number) => {
+          rating={rating}
+          onRatingSelected={(rating: number) => {
             setRating(rating);
           }}
         />
