@@ -1,13 +1,14 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useContext } from 'react';
+import FeedbackContext from '../context/FeedbackContext';
 import FeedbackItem from './FeedbackItem';
-import { Feedback } from './models/Feedback';
 
 interface Props {
-  feedbacks: Feedback[];
   handleDelete: Function;
 }
 
-function FeedbackList({ feedbacks, handleDelete }: Props): ReactElement {
+function FeedbackList({ handleDelete }: Props): ReactElement {
+  const { feedbacks } = useContext(FeedbackContext);
+
   if (!feedbacks || feedbacks.length === 0) {
     return <div>No feedback yet.</div>;
   }
