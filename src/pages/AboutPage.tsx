@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react';
-import { Link } from 'react-router-dom';
+
 import Card from '../components/shared/Card';
+import { Link } from 'react-router-dom';
 
 interface Props {}
 

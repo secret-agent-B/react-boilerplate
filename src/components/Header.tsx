@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
 import '../index.css';
+
+import React, { Component } from 'react';
 
 interface Props {
   text: string;

@@ -1,7 +1,8 @@
 import React, { ReactElement } from 'react';
+
+import Card from './shared/Card';
 import { FaTimes } from 'react-icons/fa';
 import { Feedback } from './models/Feedback';
-import Card from './shared/Card';
 
 interface Props {
   feedback: Feedback;

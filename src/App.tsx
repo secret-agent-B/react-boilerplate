@@ -1,16 +1,13 @@
 import React, { ReactElement } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 
-// components & pages
-import Header from './components/Header';
-import FeedbackStats from './components/FeedbackStats';
-import FeedbackForm from './components/FeedbackForm';
-import FeedbackList from './components/FeedbackList';
 import AboutIconLink from './components/AboutIconLink';
 import AboutPage from './pages/AboutPage';
-
-// data
+import FeedbackForm from './components/FeedbackForm';
+import FeedbackList from './components/FeedbackList';
 import { FeedbackProvider } from './context/FeedbackContext';
+import FeedbackStats from './components/FeedbackStats';
+import Header from './components/Header';
 
 function App(): ReactElement {
   return (
