@@ -1,14 +1,7 @@
 import React, { Component } from 'react';
 
-/**
- * The App component
- */
 export default class App extends Component {
-  /**
-   * The render method.
-   * @return {JSX.Element}
-   */
-  render() {
+  render(): JSX.Element {
     return <div>This is a test.</div>;
   }
 }
