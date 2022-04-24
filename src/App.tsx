@@ -23,8 +23,8 @@ const App = () => {
       {pokemonState.pokemon && (
         <div>
           <img src={pokemonState.pokemon.sprites.front_default} alt="" />
-          {pokemonState.pokemon.abilities.map((item, i) => {
-            return <p key={item.ability.name}>{item.ability.name}</p>;
+          {pokemonState.pokemon.abilities.map((ability, i) => {
+            return <p key={ability.name}>{ability.name}</p>;
           })}
         </div>
       )}

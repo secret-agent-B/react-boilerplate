@@ -5,6 +5,7 @@ import {
   POKEMON_LOADING,
   POKEMON_SUCCESS,
   POKEMON_FAIL,
+  PokemonSuccess,
 } from './PokemonActionTypes';
 
 export const getPokemon =
@@ -14,14 +15,22 @@ export const getPokemon =
         type: POKEMON_LOADING,
       });
 
-      const res = await axios.get(
+      const httpResponse = await axios.get(
         `https://pokeapi.co/api/v2/pokemon/${pokemon}`
       );
 
-      dispatch({
+      const response: PokemonSuccess = {
         type: POKEMON_SUCCESS,
-        payload: res.data,
-      });
+        payload: {
+          abilities: httpResponse.data.abilities.map(
+            (item: any) => item.ability
+          ),
+          sprites: httpResponse.data.sprites,
+          stats: httpResponse.data.stats,
+        },
+      };
+
+      dispatch(response);
     } catch (e) {
       dispatch({
         type: POKEMON_FAIL,

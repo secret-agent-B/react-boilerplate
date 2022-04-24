@@ -9,10 +9,8 @@ export type PokemonType = {
 };
 
 export type PokemonAbility = {
-  ability: {
-    name: string;
-    url: string;
-  };
+  name: string;
+  url: string;
 };
 
 export type PokemonSprite = {
