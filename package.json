@@ -25,7 +25,7 @@
     "check-lint": "eslint . --ext ts --ext tsx --ext js",
     "format": "prettier --write .",
     "test-all": "npm run check-format && npm run check-lint && npm run check-types && npm run build",
-    "prepare": "husky install"
+    "prepare": "husky install && bash -c 'chmod ug+x .husky/*'"
   },
   "eslintConfig": {
     "extends": [
@@ -52,7 +52,7 @@
     "eslint": "^8.23.0",
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-react": "^7.31.2",
+    "eslint-plugin-react": "^7.27.1",
     "husky": "^8.0.1",
     "prettier": "^2.7.1",
     "typescript": "^4.8.2"
